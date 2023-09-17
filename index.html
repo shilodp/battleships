@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Battleships</title>
+        <link rel="stylesheet" href="styles/style.css" />
+        <script src="js/jquery-3.7.1.min.js"></script>
+        <script defer src="js/ships-arrays.js"></script>
+        <script defer src="js/create-ships.js"></script>
+        <script defer src="js/placing-ships.js"></script>
+        <script defer src="js/battle.js"></script>
+        <script defer src="js/script.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1 class="page-title">Морской бой</h1>
+            <button id="new-game">Новая игра</button>
+            <button id="start-game">Готов</button>
+        </header>
+        <main>
+            <section id="starting-screen">
+                <h2 class="field-title">Расставьте корабли</h2>
+                <div class="game-field">
+                    <div class="title"></div>
+                    <div class="title">А</div>
+                    <div class="title">Б</div>
+                    <div class="title">В</div>
+                    <div class="title">Г</div>
+                    <div class="title">Д</div>
+                    <div class="title">Е</div>
+                    <div class="title">Ж</div>
+                    <div class="title">З</div>
+                    <div class="title">И</div>
+                    <div class="title">К</div>
+                    <div class="title">1</div>
+                    <div class="field-cell" data-row="0" data-column="0"></div>
+                    <div class="field-cell" data-row="0" data-column="1"></div>
+                    <div class="field-cell" data-row="0" data-column="2"></div>
+                    <div class="field-cell" data-row="0" data-column="3"></div>
+                    <div class="field-cell" data-row="0" data-column="4"></div>
+                    <div class="field-cell" data-row="0" data-column="5"></div>
+                    <div class="field-cell" data-row="0" data-column="6"></div>
+                    <div class="field-cell" data-row="0" data-column="7"></div>
+                    <div class="field-cell" data-row="0" data-column="8"></div>
+                    <div class="field-cell" data-row="0" data-column="9"></div>
+                    <div class="title">2</div>
+                    <div class="field-cell" data-row="1" data-column="0"></div>
+                    <div class="field-cell" data-row="1" data-column="1"></div>
+                    <div class="field-cell" data-row="1" data-column="2"></div>
+                    <div class="field-cell" data-row="1" data-column="3"></div>
+                    <div class="field-cell" data-row="1" data-column="4"></div>
+                    <div class="field-cell" data-row="1" data-column="5"></div>
+                    <div class="field-cell" data-row="1" data-column="6"></div>
+                    <div class="field-cell" data-row="1" data-column="7"></div>
+                    <div class="field-cell" data-row="1" data-column="8"></div>
+                    <div class="field-cell" data-row="1" data-column="9"></div>
+                    <div class="title">3</div>
+                    <div class="field-cell" data-row="2" data-column="0"></div>
+                    <div class="field-cell" data-row="2" data-column="1"></div>
+                    <div class="field-cell" data-row="2" data-column="2"></div>
+                    <div class="field-cell" data-row="2" data-column="3"></div>
+                    <div class="field-cell" data-row="2" data-column="4"></div>
+                    <div class="field-cell" data-row="2" data-column="5"></div>
+                    <div class="field-cell" data-row="2" data-column="6"></div>
+                    <div class="field-cell" data-row="2" data-column="7"></div>
+                    <div class="field-cell" data-row="2" data-column="8"></div>
+                    <div class="field-cell" data-row="2" data-column="9"></div>
+                    <div class="title">4</div>
+                    <div class="field-cell" data-row="3" data-column="0"></div>
+                    <div class="field-cell" data-row="3" data-column="1"></div>
+                    <div class="field-cell" data-row="3" data-column="2"></div>
+                    <div class="field-cell" data-row="3" data-column="3"></div>
+                    <div class="field-cell" data-row="3" data-column="4"></div>
+                    <div class="field-cell" data-row="3" data-column="5"></div>
+                    <div class="field-cell" data-row="3" data-column="6"></div>
+                    <div class="field-cell" data-row="3" data-column="7"></div>
+                    <div class="field-cell" data-row="3" data-column="8"></div>
+                    <div class="field-cell" data-row="3" data-column="9"></div>
+                    <div class="title">5</div>
+                    <div class="field-cell" data-row="4" data-column="0"></div>
+                    <div class="field-cell" data-row="4" data-column="1"></div>
+                    <div class="field-cell" data-row="4" data-column="2"></div>
+                    <div class="field-cell" data-row="4" data-column="3"></div>
+                    <div class="field-cell" data-row="4" data-column="4"></div>
+                    <div class="field-cell" data-row="4" data-column="5"></div>
+                    <div class="field-cell" data-row="4" data-column="6"></div>
+                    <div class="field-cell" data-row="4" data-column="7"></div>
+                    <div class="field-cell" data-row="4" data-column="8"></div>
+                    <div class="field-cell" data-row="4" data-column="9"></div>
+                    <div class="title">6</div>
+                    <div class="field-cell" data-row="5" data-column="0"></div>
+                    <div class="field-cell" data-row="5" data-column="1"></div>
+                    <div class="field-cell" data-row="5" data-column="2"></div>
+                    <div class="field-cell" data-row="5" data-column="3"></div>
+                    <div class="field-cell" data-row="5" data-column="4"></div>
+                    <div class="field-cell" data-row="5" data-column="5"></div>
+                    <div class="field-cell" data-row="5" data-column="6"></div>
+                    <div class="field-cell" data-row="5" data-column="7"></div>
+                    <div class="field-cell" data-row="5" data-column="8"></div>
+                    <div class="field-cell" data-row="5" data-column="9"></div>
+                    <div class="title">7</div>
+                    <div class="field-cell" data-row="6" data-column="0"></div>
+                    <div class="field-cell" data-row="6" data-column="1"></div>
+                    <div class="field-cell" data-row="6" data-column="2"></div>
+                    <div class="field-cell" data-row="6" data-column="3"></div>
+                    <div class="field-cell" data-row="6" data-column="4"></div>
+                    <div class="field-cell" data-row="6" data-column="5"></div>
+                    <div class="field-cell" data-row="6" data-column="6"></div>
+                    <div class="field-cell" data-row="6" data-column="7"></div>
+                    <div class="field-cell" data-row="6" data-column="8"></div>
+                    <div class="field-cell" data-row="6" data-column="9"></div>
+                    <div class="title">8</div>
+                    <div class="field-cell" data-row="7" data-column="0"></div>
+                    <div class="field-cell" data-row="7" data-column="1"></div>
+                    <div class="field-cell" data-row="7" data-column="2"></div>
+                    <div class="field-cell" data-row="7" data-column="3"></div>
+                    <div class="field-cell" data-row="7" data-column="4"></div>
+                    <div class="field-cell" data-row="7" data-column="5"></div>
+                    <div class="field-cell" data-row="7" data-column="6"></div>
+                    <div class="field-cell" data-row="7" data-column="7"></div>
+                    <div class="field-cell" data-row="7" data-column="8"></div>
+                    <div class="field-cell" data-row="7" data-column="9"></div>
+                    <div class="title">9</div>
+                    <div class="field-cell" data-row="8" data-column="0"></div>
+                    <div class="field-cell" data-row="8" data-column="1"></div>
+                    <div class="field-cell" data-row="8" data-column="2"></div>
+                    <div class="field-cell" data-row="8" data-column="3"></div>
+                    <div class="field-cell" data-row="8" data-column="4"></div>
+                    <div class="field-cell" data-row="8" data-column="5"></div>
+                    <div class="field-cell" data-row="8" data-column="6"></div>
+                    <div class="field-cell" data-row="8" data-column="7"></div>
+                    <div class="field-cell" data-row="8" data-column="8"></div>
+                    <div class="field-cell" data-row="8" data-column="9"></div>
+                    <div class="title">10</div>
+                    <div class="field-cell" data-row="9" data-column="0"></div>
+                    <div class="field-cell" data-row="9" data-column="1"></div>
+                    <div class="field-cell" data-row="9" data-column="2"></div>
+                    <div class="field-cell" data-row="9" data-column="3"></div>
+                    <div class="field-cell" data-row="9" data-column="4"></div>
+                    <div class="field-cell" data-row="9" data-column="5"></div>
+                    <div class="field-cell" data-row="9" data-column="6"></div>
+                    <div class="field-cell" data-row="9" data-column="7"></div>
+                    <div class="field-cell" data-row="9" data-column="8"></div>
+                    <div class="field-cell" data-row="9" data-column="9"></div>
+                </div>
+                <div class="ships-field-wrapper">
+                    <div class="ships-field">
+                        <div
+                            class="ship-row clickable"
+                            data-length="1"
+                            data-amount="4"
+                        >
+                            <div class="counter">4</div>
+                            <div
+                                class="ship ship-horizontal ship-left ship-right"
+                            ></div>
+                        </div>
+                        <div
+                            class="ship-row clickable"
+                            data-length="2"
+                            data-amount="3"
+                        >
+                            <div class="counter">3</div>
+                            <div class="ship ship-horizontal ship-left"></div>
+                            <div class="ship ship-horizontal ship-right"></div>
+                        </div>
+                        <div
+                            class="ship-row clickable"
+                            data-length="3"
+                            data-amount="2"
+                        >
+                            <div class="counter">2</div>
+                            <div class="ship ship-horizontal ship-left"></div>
+                            <div class="ship ship-horizontal"></div>
+                            <div class="ship ship-horizontal ship-right"></div>
+                        </div>
+                        <div
+                            class="ship-row clickable"
+                            data-length="4"
+                            data-amount="1"
+                        >
+                            <div class="counter">1</div>
+                            <div class="ship ship-horizontal ship-left"></div>
+                            <div class="ship ship-horizontal"></div>
+                            <div class="ship ship-horizontal"></div>
+                            <div class="ship ship-horizontal ship-right"></div>
+                        </div>
+                        <div class="ship-row to-move"></div>
+                        <button id="place-random">Случайно</button>
+                    </div>
+                </div>
+            </section>
+            <section id="game-screen">
+                <div id="gamer-field">
+                    <h2 class="field-title">Поле игрока</h2>
+                    <div class="game-field">
+                        <div class="title"></div>
+                        <div class="title">А</div>
+                        <div class="title">Б</div>
+                        <div class="title">В</div>
+                        <div class="title">Г</div>
+                        <div class="title">Д</div>
+                        <div class="title">Е</div>
+                        <div class="title">Ж</div>
+                        <div class="title">З</div>
+                        <div class="title">И</div>
+                        <div class="title">К</div>
+                        <div class="title">1</div>
+                        <div
+                            class="field-cell"
+                            data-row="0"
+                            data-column="0"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="0"
+                            data-column="1"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="0"
+                            data-column="2"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="0"
+                            data-column="3"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="0"
+                            data-column="4"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="0"
+                            data-column="5"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="0"
+                            data-column="6"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="0"
+                            data-column="7"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="0"
+                            data-column="8"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="0"
+                            data-column="9"
+                        ></div>
+                        <div class="title">2</div>
+                        <div
+                            class="field-cell"
+                            data-row="1"
+                            data-column="0"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="1"
+                            data-column="1"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="1"
+                            data-column="2"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="1"
+                            data-column="3"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="1"
+                            data-column="4"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="1"
+                            data-column="5"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="1"
+                            data-column="6"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="1"
+                            data-column="7"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="1"
+                            data-column="8"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="1"
+                            data-column="9"
+                        ></div>
+                        <div class="title">3</div>
+                        <div
+                            class="field-cell"
+                            data-row="2"
+                            data-column="0"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="2"
+                            data-column="1"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="2"
+                            data-column="2"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="2"
+                            data-column="3"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="2"
+                            data-column="4"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="2"
+                            data-column="5"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="2"
+                            data-column="6"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="2"
+                            data-column="7"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="2"
+                            data-column="8"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="2"
+                            data-column="9"
+                        ></div>
+                        <div class="title">4</div>
+                        <div
+                            class="field-cell"
+                            data-row="3"
+                            data-column="0"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="3"
+                            data-column="1"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="3"
+                            data-column="2"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="3"
+                            data-column="3"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="3"
+                            data-column="4"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="3"
+                            data-column="5"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="3"
+                            data-column="6"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="3"
+                            data-column="7"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="3"
+                            data-column="8"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="3"
+                            data-column="9"
+                        ></div>
+                        <div class="title">5</div>
+                        <div
+                            class="field-cell"
+                            data-row="4"
+                            data-column="0"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="4"
+                            data-column="1"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="4"
+                            data-column="2"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="4"
+                            data-column="3"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="4"
+                            data-column="4"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="4"
+                            data-column="5"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="4"
+                            data-column="6"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="4"
+                            data-column="7"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="4"
+                            data-column="8"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="4"
+                            data-column="9"
+                        ></div>
+                        <div class="title">6</div>
+                        <div
+                            class="field-cell"
+                            data-row="5"
+                            data-column="0"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="5"
+                            data-column="1"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="5"
+                            data-column="2"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="5"
+                            data-column="3"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="5"
+                            data-column="4"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="5"
+                            data-column="5"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="5"
+                            data-column="6"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="5"
+                            data-column="7"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="5"
+                            data-column="8"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="5"
+                            data-column="9"
+                        ></div>
+                        <div class="title">7</div>
+                        <div
+                            class="field-cell"
+                            data-row="6"
+                            data-column="0"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="6"
+                            data-column="1"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="6"
+                            data-column="2"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="6"
+                            data-column="3"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="6"
+                            data-column="4"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="6"
+                            data-column="5"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="6"
+                            data-column="6"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="6"
+                            data-column="7"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="6"
+                            data-column="8"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="6"
+                            data-column="9"
+                        ></div>
+                        <div class="title">8</div>
+                        <div
+                            class="field-cell"
+                            data-row="7"
+                            data-column="0"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="7"
+                            data-column="1"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="7"
+                            data-column="2"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="7"
+                            data-column="3"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="7"
+                            data-column="4"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="7"
+                            data-column="5"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="7"
+                            data-column="6"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="7"
+                            data-column="7"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="7"
+                            data-column="8"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="7"
+                            data-column="9"
+                        ></div>
+                        <div class="title">9</div>
+                        <div
+                            class="field-cell"
+                            data-row="8"
+                            data-column="0"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="8"
+                            data-column="1"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="8"
+                            data-column="2"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="8"
+                            data-column="3"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="8"
+                            data-column="4"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="8"
+                            data-column="5"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="8"
+                            data-column="6"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="8"
+                            data-column="7"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="8"
+                            data-column="8"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="8"
+                            data-column="9"
+                        ></div>
+                        <div class="title">10</div>
+                        <div
+                            class="field-cell"
+                            data-row="9"
+                            data-column="0"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="9"
+                            data-column="1"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="9"
+                            data-column="2"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="9"
+                            data-column="3"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="9"
+                            data-column="4"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="9"
+                            data-column="5"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="9"
+                            data-column="6"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="9"
+                            data-column="7"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="9"
+                            data-column="8"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="9"
+                            data-column="9"
+                        ></div>
+                    </div>
+                </div>
+                <div id="enemy-field">
+                    <h2 class="field-title">Поле противника</h2>
+                    <div class="game-field">
+                        <div class="title"></div>
+                        <div class="title">А</div>
+                        <div class="title">Б</div>
+                        <div class="title">В</div>
+                        <div class="title">Г</div>
+                        <div class="title">Д</div>
+                        <div class="title">Е</div>
+                        <div class="title">Ж</div>
+                        <div class="title">З</div>
+                        <div class="title">И</div>
+                        <div class="title">К</div>
+                        <div class="title">1</div>
+                        <div
+                            class="field-cell"
+                            data-row="0"
+                            data-column="0"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="0"
+                            data-column="1"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="0"
+                            data-column="2"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="0"
+                            data-column="3"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="0"
+                            data-column="4"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="0"
+                            data-column="5"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="0"
+                            data-column="6"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="0"
+                            data-column="7"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="0"
+                            data-column="8"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="0"
+                            data-column="9"
+                        ></div>
+                        <div class="title">2</div>
+                        <div
+                            class="field-cell"
+                            data-row="1"
+                            data-column="0"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="1"
+                            data-column="1"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="1"
+                            data-column="2"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="1"
+                            data-column="3"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="1"
+                            data-column="4"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="1"
+                            data-column="5"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="1"
+                            data-column="6"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="1"
+                            data-column="7"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="1"
+                            data-column="8"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="1"
+                            data-column="9"
+                        ></div>
+                        <div class="title">3</div>
+                        <div
+                            class="field-cell"
+                            data-row="2"
+                            data-column="0"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="2"
+                            data-column="1"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="2"
+                            data-column="2"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="2"
+                            data-column="3"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="2"
+                            data-column="4"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="2"
+                            data-column="5"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="2"
+                            data-column="6"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="2"
+                            data-column="7"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="2"
+                            data-column="8"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="2"
+                            data-column="9"
+                        ></div>
+                        <div class="title">4</div>
+                        <div
+                            class="field-cell"
+                            data-row="3"
+                            data-column="0"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="3"
+                            data-column="1"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="3"
+                            data-column="2"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="3"
+                            data-column="3"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="3"
+                            data-column="4"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="3"
+                            data-column="5"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="3"
+                            data-column="6"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="3"
+                            data-column="7"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="3"
+                            data-column="8"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="3"
+                            data-column="9"
+                        ></div>
+                        <div class="title">5</div>
+                        <div
+                            class="field-cell"
+                            data-row="4"
+                            data-column="0"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="4"
+                            data-column="1"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="4"
+                            data-column="2"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="4"
+                            data-column="3"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="4"
+                            data-column="4"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="4"
+                            data-column="5"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="4"
+                            data-column="6"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="4"
+                            data-column="7"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="4"
+                            data-column="8"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="4"
+                            data-column="9"
+                        ></div>
+                        <div class="title">6</div>
+                        <div
+                            class="field-cell"
+                            data-row="5"
+                            data-column="0"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="5"
+                            data-column="1"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="5"
+                            data-column="2"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="5"
+                            data-column="3"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="5"
+                            data-column="4"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="5"
+                            data-column="5"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="5"
+                            data-column="6"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="5"
+                            data-column="7"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="5"
+                            data-column="8"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="5"
+                            data-column="9"
+                        ></div>
+                        <div class="title">7</div>
+                        <div
+                            class="field-cell"
+                            data-row="6"
+                            data-column="0"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="6"
+                            data-column="1"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="6"
+                            data-column="2"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="6"
+                            data-column="3"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="6"
+                            data-column="4"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="6"
+                            data-column="5"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="6"
+                            data-column="6"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="6"
+                            data-column="7"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="6"
+                            data-column="8"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="6"
+                            data-column="9"
+                        ></div>
+                        <div class="title">8</div>
+                        <div
+                            class="field-cell"
+                            data-row="7"
+                            data-column="0"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="7"
+                            data-column="1"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="7"
+                            data-column="2"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="7"
+                            data-column="3"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="7"
+                            data-column="4"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="7"
+                            data-column="5"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="7"
+                            data-column="6"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="7"
+                            data-column="7"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="7"
+                            data-column="8"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="7"
+                            data-column="9"
+                        ></div>
+                        <div class="title">9</div>
+                        <div
+                            class="field-cell"
+                            data-row="8"
+                            data-column="0"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="8"
+                            data-column="1"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="8"
+                            data-column="2"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="8"
+                            data-column="3"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="8"
+                            data-column="4"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="8"
+                            data-column="5"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="8"
+                            data-column="6"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="8"
+                            data-column="7"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="8"
+                            data-column="8"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="8"
+                            data-column="9"
+                        ></div>
+                        <div class="title">10</div>
+                        <div
+                            class="field-cell"
+                            data-row="9"
+                            data-column="0"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="9"
+                            data-column="1"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="9"
+                            data-column="2"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="9"
+                            data-column="3"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="9"
+                            data-column="4"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="9"
+                            data-column="5"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="9"
+                            data-column="6"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="9"
+                            data-column="7"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="9"
+                            data-column="8"
+                        ></div>
+                        <div
+                            class="field-cell"
+                            data-row="9"
+                            data-column="9"
+                        ></div>
+                    </div>
+                </div>
+                <div class="ships-field-wrapper">
+                    <div class="ships-field">
+                        <div class="ship-row" data-length="1" data-amount="4">
+                            <div class="counter">4</div>
+                            <div
+                                class="ship ship-horizontal ship-left ship-right"
+                            ></div>
+                        </div>
+                        <div class="ship-row" data-length="2" data-amount="3">
+                            <div class="counter">3</div>
+                            <div class="ship ship-horizontal ship-left"></div>
+                            <div class="ship ship-horizontal ship-right"></div>
+                        </div>
+                        <div class="ship-row" data-length="3" data-amount="2">
+                            <div class="counter">2</div>
+                            <div class="ship ship-horizontal ship-left"></div>
+                            <div class="ship ship-horizontal"></div>
+                            <div class="ship ship-horizontal ship-right"></div>
+                        </div>
+                        <div class="ship-row" data-length="4" data-amount="1">
+                            <div class="counter">1</div>
+                            <div class="ship ship-horizontal ship-left"></div>
+                            <div class="ship ship-horizontal"></div>
+                            <div class="ship ship-horizontal"></div>
+                            <div class="ship ship-horizontal ship-right"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

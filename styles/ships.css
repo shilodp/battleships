@@ -1,0 +1,50 @@
+.ship {
+    background-color: lightgrey !important;
+}
+
+.ship.hit {
+    background-color: darkgrey !important;
+}
+
+.ship.dead {
+    background-color: black !important;
+}
+
+.ship.ship-vertical {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.ship.ship-horizontal {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.ship.ship-top {
+    border-top: 1px solid black;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.ship.ship-right {
+    border-right: 1px solid black;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.ship.ship-bottom {
+    border-bottom: 1px solid black;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.ship.ship-left {
+    border-left: 1px solid black;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.ship.ship-single {
+    border: 1px solid black;
+    border-radius: 15px;
+}

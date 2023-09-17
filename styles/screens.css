@@ -1,0 +1,72 @@
+#starting-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#game-screen {
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+body.game #starting-screen {
+    display: none;
+}
+
+body.game #game-screen {
+    display: flex;
+}
+
+body.game #start-game {
+    display: none;
+}
+
+body.enemy-turn #game-screen {
+    cursor: none;
+}
+
+.field-title {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+.ships-field-wrapper {
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.ships-field {
+    display: grid;
+    grid-template-rows: repeat(5, 30px);
+    grid-gap: 10px;
+}
+
+.ships-field .ship-row {
+    display: grid;
+    grid-template-columns: repeat(5, 30px);
+}
+
+.ships-field .ship-row.clickable .ship {
+    cursor: pointer;
+}
+
+.ships-field .counter {
+    display: flex;
+    align-items: center;
+}
+
+.ships-field .to-move {
+    position: absolute;
+    height: 30px;
+    opacity: 0;
+    z-index: 10;
+    pointer-events: none;
+    transform-origin: 15px 15px;
+}
+
+.ships-field .to-move.active {
+    opacity: 1;
+}
